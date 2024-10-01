@@ -22,7 +22,7 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.user.username}'s Post"
 
-class PostTest(models.Model):
+class PostText(models.Model):
     text = models.TextField(max_length=1500, null=True)
     post = models.ForeignKey(Post, null=True, on_delete=models.CASCADE)
     updated = models.DateTimeField(auto_now=True)
@@ -33,7 +33,7 @@ class PostTest(models.Model):
 
 class PostPhoto(models.Model):
     post = models.ForeignKey(Post, null=True, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/')
+    photo = models.ImageField(upload_to='images/')
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 

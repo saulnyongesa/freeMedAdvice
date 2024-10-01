@@ -7,6 +7,7 @@ from rest_framework import status
 from .models import *
 from .serializer import *
 
+# User logic
 @api_view(['GET', 'PUT', 'DELETE'])
 def get_user(request, pk):
     try:
@@ -35,3 +36,40 @@ def create_user(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Topic logics
+@api_view(['GET'])
+def get_topics(request):
+    topics = Topic.objects.all()  # Adjust the query as needed
+    serializer = TopicSerializer(topics)
+    return Response(serializer.data)
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def get_topic(request, pk):
+    try:
+        topic = Topic.objects.get(id=pk)  # Adjust the query as needed
+    except Topic.DoesNotExist:
+        return Response({"error": "Topic not found"}, status=404)
+
+    if request.method=='GET':
+        serializer = TopicSerializer(topic)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = TopicSerializer(topic, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        topic.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['POST'])
+def create_topic(request):
+    serializer = TopicSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
