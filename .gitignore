@@ -1,3 +1,7 @@
 /.venv
+<<<<<<< HEAD
 /.idea
 /static/media/video
+=======
+/.idea
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d

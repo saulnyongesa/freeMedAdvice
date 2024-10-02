@@ -15,7 +15,11 @@ SECRET_KEY = 'django-insecure-(6j@$xb6=gvjhyn!+wk=-!bj*6hc4sho0$wnss$y=s-(i7e=$g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
+=======
+ALLOWED_HOSTS = []
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d
 
 
 # Application definition
@@ -71,6 +75,7 @@ WSGI_APPLICATION = 'freeMedAdvice.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+<<<<<<< HEAD
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -86,6 +91,12 @@ DATABASES = {
         'PASSWORD': 'snmsnm12',
         'HOST': 'localhost',  # Replace with your PostgreSQL server's address if necessary
         'PORT': '5432',          # Leave empty to use the default PostgreSQL port (usually 5432)
+=======
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d
     }
 }
 

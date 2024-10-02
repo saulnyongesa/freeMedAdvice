@@ -1,7 +1,16 @@
+<<<<<<< HEAD
+=======
+from django.shortcuts import render
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d
 from requests import Response
 from rest_framework.response import *
 from rest_framework.decorators import api_view
 from rest_framework import status
+<<<<<<< HEAD
+=======
+
+from .models import *
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d
 from .serializer import *
 
 # User logic
@@ -39,7 +48,11 @@ def create_user(request):
 @api_view(['GET'])
 def get_topics(request):
     topics = Topic.objects.all()  # Adjust the query as needed
+<<<<<<< HEAD
     serializer = TopicSerializer(topics, many=True)
+=======
+    serializer = TopicSerializer(topics)
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d
     return Response(serializer.data)
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -64,13 +77,18 @@ def get_topic(request, pk):
 
 @api_view(['POST'])
 def create_topic(request):
+<<<<<<< HEAD
     data = request.data
     serializer = TopicSerializer(data=data)
+=======
+    serializer = TopicSerializer(data=request.data)
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+<<<<<<< HEAD
 # Post logics
 @api_view(['GET'])
 def get_posts(request):
@@ -156,3 +174,5 @@ def room_chat(request, pk):
         return Response(serializer.data)
 
 
+=======
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d

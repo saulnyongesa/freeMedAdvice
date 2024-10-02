@@ -13,6 +13,7 @@ urlpatterns += [
     path('topics/', views.get_topics, name="get_topics-url"),
     path('topic/<int:pk>/', views.get_topic, name="get_topic-url"),
     path('topic/create/', views.create_topic, name="create_topic-url"),
+<<<<<<< HEAD
 ]
 
 # Post logic url
@@ -32,4 +33,6 @@ urlpatterns += [
 # Room Chat logic url
 urlpatterns += [
     path('room/chat/<int:pk>/', views.room_chat, name="get_room_chat-url"),
+=======
+>>>>>>> 1500c71627aee91dfad6bb07462a2105c050169d
 ]
