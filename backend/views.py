@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from requests import Response
 from rest_framework.response import *
 from rest_framework.decorators import api_view
@@ -72,11 +73,21 @@ def create_topic(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Post logics
-@api_view(['GET'])
+
+@api_view(['POST'])
 def get_posts(request):
-    posts = Post.objects.all()  # Adjust the query as needed
+    query = request.data.get('query')
+    if query:
+        posts = Post.objects.filter(id=query)
+    else:
+        posts = Post.objects.all()
     serializer = PostSerializer(posts, many=True)
-    return Response(serializer.data)
+    context = {
+        'success': True,
+        'data': serializer.data
+    }
+    return JsonResponse(context)
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def get_post(request, pk):

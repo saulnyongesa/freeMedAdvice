@@ -1,11 +1,45 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'resources/bootstrap/css/bootstrap.css' %}">
+    <title>Post Search</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background for better visibility */
+        }
+        .result-holder {
+            border: 2px solid black; 
+            background-color: white; 
+            padding: 20px; 
+            border-radius: 5px; 
+            max-height: 400px; 
+            overflow-y: auto; /* Adds scroll if the content overflows */
+        }
+        .m-auto {
+            margin: 10px 0; /* Adds spacing between results */
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center mb-3">
+            <input type="number" id="search" class="form-control w-50" placeholder="Search by Post ID">
+        </div>
+        <h4 id="result-header" class="text-center">Posts</h4>
+        <div id="result-holder" class="result-holder">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <script src="{% static 'resources/bootstrap/js/jquery-3.4.0.js' %}"></script>
+    <script src="{% static 'resources/bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'resources/bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'resources/js/main.js' %}"></script>
 </body>
+
 </html>

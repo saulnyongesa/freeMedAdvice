@@ -15,7 +15,7 @@ class TopicSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ['id', 'user', 'topic', 'text', 'video']
+        fields = ['id', 'text', 'user', 'topic', 'video', 'created', 'updated', 'is_published']
 
 
 class PostPhotoSerializer(serializers.ModelSerializer):

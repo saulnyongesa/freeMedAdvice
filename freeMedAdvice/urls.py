@@ -6,7 +6,8 @@ from freeMedAdvice import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('backend.urls'))
+    path('', include('backend.urls')),
+    path('app/', include('app.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(
