@@ -1,0 +1,22 @@
+### admin============================
+GET http://localhost:8000/admin/
+
+### posts==============================
+POST http://localhost:8000/post/create/
+GET http://localhost:8000/post/{{pk}}/
+GET http://localhost:8000/posts/
+
+### room and chat==========================
+GET http://localhost:8000/room/chat/{{pk}}/
+POST http://localhost:8000/room/create/
+GET http://localhost:8000/room/{{pk}}/
+GET http://localhost:8000/rooms/
+
+### topic=======================
+POST http://localhost:8000/topic/create/
+GET http://localhost:8000/topic/{{pk}}/
+GET http://localhost:8000/topics/
+
+### user======================
+POST http://localhost:8000/user/create/
+GET http://localhost:8000/user/{{pk}}/
